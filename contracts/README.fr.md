@@ -113,7 +113,7 @@ Détail dans [`docs/ROUND-LIFECYCLE.fr.md`](docs/ROUND-LIFECYCLE.fr.md).
 | **M1** | `AugPocToken` (ERC20 + Permit + AccessControl + Pausable + 4 rôles) | ✅ fait |
 | **M2** | Bibliothèque `MonthlyMintCap` + fuzzing exhaustif | ✅ fait |
 | **M3** | `RoundRegistry` (propose / challenge / execute / cancel) | ✅ fait |
-| **M4** | Scripts de déploiement Arbitrum Sepolia + intégration Safe | en attente |
+| **M4** | Scripts de déploiement Arbitrum Sepolia + helpers opérationnels | ✅ fait |
 | **M5** | Dashboard read-only (Next.js + viem) | en attente |
 
 ## Licence

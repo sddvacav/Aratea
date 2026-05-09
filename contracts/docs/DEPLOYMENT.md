@@ -2,94 +2,213 @@
 
 # Deployment — Augure contracts (Phase 1)
 
-*Version 0.1 — 2026-05-09 — placeholder, will be filled in detail at Milestone M4.*
+*Version 1.0 — 2026-05-09*
 
-## 1. Target
+This document covers the end-to-end deployment of the Phase 1 settlement layer
+on Arbitrum Sepolia: token + registry + role wiring, post-deploy verification,
+Arbiscan source verification, and the genesis round propose/execute flow.
+Mainnet deployment notes live at the bottom — they require a Safe multisig.
 
-Phase 1 deploys to **Arbitrum Sepolia testnet only**. Mainnet deployment is gated on a community audit (see [`SECURITY.md`](SECURITY.md) §7).
+## 1. Prerequisites
 
-## 2. Prerequisites (filled at M4)
+### One-time setup
 
-Before running the deploy scripts, the founder must have:
+- **Foundry** installed locally — see [getfoundry.sh](https://book.getfoundry.sh/getting-started/installation).
+- **Forge dependencies installed** in `contracts/`:
+  ```bash
+  cd contracts
+  forge install --no-git foundry-rs/forge-std@v1.9.4
+  forge install --no-git OpenZeppelin/openzeppelin-contracts@v5.1.0
+  ```
+- **Arbiscan API key** (free, 5 min) — register at [arbiscan.io](https://arbiscan.io).
+- **Funded EOA on Arbitrum Sepolia** with a small amount of test ETH:
+  - Faucet: [faucet.quicknode.com/arbitrum/sepolia](https://faucet.quicknode.com/arbitrum/sepolia)
+  - Or bridge from Sepolia ETH: [bridge.arbitrum.io](https://bridge.arbitrum.io)
+  - 0.01 ETH-Sepolia is plenty for the entire flow.
+- **Pinata account** (free, 1 GB) for round IPFS pinning — register at [pinata.cloud](https://pinata.cloud).
 
-- A funded EOA on Arbitrum Sepolia (a few ETH-Sepolia from a faucet — gas only).
-- A Safe multisig deployed on Arbitrum Sepolia (M-of-N, hardware-wallet signers, threshold M ≥ 2).
-- An Arbiscan API key (free).
-- A Pinata API key (for round IPFS pinning at M5+).
-- `.env` filled in from `.env.example`.
+### Per-deployment setup
 
-## 3. Deployment flow (high level)
+- Copy `.env.example` to `.env` and fill in:
+  - `RPC_ARBITRUM_SEPOLIA` — your RPC endpoint (default public works).
+  - `DEPLOYER_PK` — private key of your deployer EOA. For Phase 1 testnet this **must
+    equal** `ADMIN_ADDRESS`'s account.
+  - `ADMIN_ADDRESS` — the same EOA address. (Mainnet flow is different — see §6.)
+  - `ARBISCAN_API_KEY` — for source-code verification.
 
-```
-┌──────────────┐    ┌──────────────────┐    ┌──────────────────┐    ┌────────────────────┐
-│ deployer EOA │───▶│ Deploy AugPoc    │───▶│ Deploy           │───▶│ Wire roles:        │
-│ (admin temp) │    │ Token            │    │ RoundRegistry    │    │ - Token MINTER →   │
-└──────────────┘    └──────────────────┘    └──────────────────┘    │   RoundRegistry    │
-                                                                     │ - Token PAUSER →   │
-                                                                     │   Safe             │
-                                                                     │ - Registry admin → │
-                                                                     │   Safe             │
-                                                                     └─────────┬──────────┘
-                                                                               │
-                                                                               ▼
-                                                                     ┌────────────────────┐
-                                                                     │ Transfer DEFAULT_  │
-                                                                     │ ADMIN_ROLE to Safe │
-                                                                     │ on every contract  │
-                                                                     └─────────┬──────────┘
-                                                                               │
-                                                                               ▼
-                                                                     ┌────────────────────┐
-                                                                     │ Deployer EOA       │
-                                                                     │ renounces all roles│
-                                                                     └─────────┬──────────┘
-                                                                               │
-                                                                               ▼
-                                                                     ┌────────────────────┐
-                                                                     │ Verify on Arbiscan │
-                                                                     └─────────┬──────────┘
-                                                                               │
-                                                                               ▼
-                                                                     ┌────────────────────┐
-                                                                     │ Post-deploy        │
-                                                                     │ invariant tests    │
-                                                                     │ on live deployment │
-                                                                     └────────────────────┘
+## 2. Deployment
+
+```bash
+cd contracts
+source .env
+
+forge script script/DeployAugurePhase1.s.sol:DeployAugurePhase1 \
+  --rpc-url $RPC_ARBITRUM_SEPOLIA \
+  --broadcast \
+  --verify \
+  --etherscan-api-key $ARBISCAN_API_KEY \
+  -vv
 ```
 
-## 4. Scripts (filled at M4)
+The script logs the two deployed addresses. Note them — you'll need them for
+every subsequent step:
 
-| Script | Purpose | Caller |
-|---|---|---|
-| `script/DeployToken.s.sol` | Deploy `AugPocToken`, grant initial roles to deployer EOA | Deployer EOA |
-| `script/DeployRegistry.s.sol` | Deploy `RoundRegistry`, wire `MINTER_ROLE` from token | Deployer EOA |
-| `script/HandoffToSafe.s.sol` | Transfer admin to Safe, renounce on deployer | Deployer EOA |
-| `script/ProposeRound.s.sol` | Generate Safe Transaction Builder calldata for `proposeRound` | Off-chain helper (founder) |
-| `script/ExecuteRound.s.sol` | Generate Safe Transaction Builder calldata for `executeRound` | Off-chain helper (founder) |
+```
+AugPocToken deployed at:    0x...
+RoundRegistry deployed at:  0x...
+```
 
-Privileged actions (`proposeRound`, `executeRound`, `cancelRound`) are **never** executed from an EOA. The scripts emit calldata that the Safe signs and broadcasts.
+What it does:
+1. Deploys `AugPocToken` with `ADMIN_ADDRESS` as `DEFAULT_ADMIN_ROLE` holder.
+2. Deploys `RoundRegistry` with `ADMIN_ADDRESS` as `DEFAULT_ADMIN_ROLE` holder
+   and the token reference set immutably.
+3. Grants `MINTER_ROLE` on the token to the registry (so `executeRound` can mint).
+4. Grants `PAUSER_ROLE` on the token to the admin.
+5. Grants `ROUND_PROPOSER_ROLE`, `ROUND_EXECUTOR_ROLE`, `ROUND_CANCELLER_ROLE`
+   on the registry to the admin.
+6. **`BURNER_ROLE` is NOT granted** — reserved for the future `AugConverter`
+   contract that will execute the AUG-POC → AUG conversion at the Phase 2 DAO
+   launch (see white paper §7.2).
+7. Asserts every role-wiring property in-script before returning.
 
-## 5. Post-deploy verification
+The `--verify` flag uses your Arbiscan API key to upload the source code, so the
+contract's "Code" tab on Arbiscan shows the verified source instead of bytecode.
 
-A Foundry script `script/VerifyDeployment.s.sol` runs against the live testnet deployment and asserts:
+## 3. Post-deploy verification
 
-- `token.MINTER_ROLE()` is held only by `RoundRegistry`.
-- `token.DEFAULT_ADMIN_ROLE()` is held only by the Safe.
-- `registry.DEFAULT_ADMIN_ROLE()` is held only by the Safe.
-- The deployer EOA holds **zero** roles on either contract.
+Run from a clean shell (or a different machine — useful as an independent check):
 
-## 6. Genesis round execution (M5)
+```bash
+export TOKEN_ADDRESS=0x... # from step 2
+export REGISTRY_ADDRESS=0x... # from step 2
+export ADMIN_ADDRESS=0x... # same as deployer
 
-After deployment is verified, the genesis round (`2026-05-genesis`, 34 039 500 tokens to `@Elladriel80`'s wallet) is executed via:
+forge script script/VerifyDeployment.s.sol:VerifyDeployment \
+  --rpc-url $RPC_ARBITRUM_SEPOLIA
+```
 
-1. Founder pins `valuation_report.md` to IPFS (Pinata).
-2. Founder runs `script/ProposeRound.s.sol` to generate the calldata, with a `challengeWindowDays = 30`.
-3. Safe executes `proposeRound` — round status becomes `Proposed`.
-4. 30 days pass. If no challenge filed and Safe judges the off-chain process clean, `executeRound` calldata is generated and signed.
-5. Mint occurs to the beneficiary wallet. `totalSupply` becomes 34 039 500 × 10^18.
+If the script ends with `== All assertions passed ==`, the on-chain state is
+exactly what we expect. Any revert means a wiring problem and **you must not
+proceed to genesis** until it is resolved.
+
+## 4. Pin the genesis round to IPFS
+
+```bash
+# Pin the entire 2026-05-genesis folder via Pinata's web UI or CLI.
+# The recommended approach is to pin the folder itself so the resulting CID
+# resolves to the directory listing of all 4 files.
+
+# Once pinned, you get a CID like bafyXXX. The IPFS URI to use is:
+#   ipfs://bafyXXX/valuation_report.md
+
+# Save this URI — it is the GENESIS_IPFS_URI env var below.
+```
+
+The CID is what binds the on-chain `roundHash` to the off-chain artefacts. If
+the file is ever lost from Pinata, the round record on-chain still stands (hash
++ amounts + beneficiaries are immutable), but the human-readable rationale
+would have to be republished.
+
+## 5. Genesis round lifecycle
+
+### 5.1 Propose
+
+```bash
+export REGISTRY_ADDRESS=0x... # from step 2
+export GENESIS_BENEFICIARY=0x... # founder EOA receiving 34_039_500 tokens
+export GENESIS_IPFS_URI=ipfs://bafyXXX/valuation_report.md
+export PROPOSER_PK=$DEPLOYER_PK # same EOA in Phase 1 testnet
+export BROADCAST=true
+
+forge script script/ProposeGenesisRound.s.sol:ProposeGenesisRound \
+  --rpc-url $RPC_ARBITRUM_SEPOLIA \
+  --broadcast \
+  -vv
+```
+
+The script logs the computed `roundHash`. **Save it** — you'll need it to
+execute or cancel later. After this step, the round is live on-chain in the
+`Proposed` state with a 30-day challenge window.
+
+### 5.2 Wait
+
+The genesis challenge window is 30 days (per white paper §11) — extended from
+the regular 7 days to give prospective investors time to review before
+committing.
+
+During this window, anyone can call `challengeRound(roundHash, reasonIpfsUri)`
+publicly to flag the valuation. If a challenge is filed:
+- The off-chain panel of Top-X holders (X = 5 in Phase 1) reviews and votes.
+- If the panel **upholds** the challenge → run §5.3 (Cancel).
+- If the panel **dismisses** the challenge → simply let the window expire, then
+  run §5.4 (Execute) — the contract executes Challenged rounds the same as
+  Proposed ones once the window has passed.
+
+### 5.3 Cancel (only if a challenge is upheld)
+
+```bash
+export ROUND_HASH=0x... # from step 5.1
+export REASON_IPFS_URI=ipfs://bafyYYY/cancel-rationale.md
+export CANCELLER_PK=$DEPLOYER_PK
+export BROADCAST=true
+
+forge script script/CancelRound.s.sol:CancelRound \
+  --rpc-url $RPC_ARBITRUM_SEPOLIA \
+  --broadcast \
+  -vv
+```
+
+A cancelled round is permanent. Restarting the genesis flow requires a new
+valuation report under a new IPFS CID, which produces a new `roundHash`.
+
+### 5.4 Execute (after 30 days, if not cancelled)
+
+```bash
+export ROUND_HASH=0x... # from step 5.1
+export EXECUTOR_PK=$DEPLOYER_PK
+export BROADCAST=true
+
+forge script script/ExecuteRound.s.sol:ExecuteRound \
+  --rpc-url $RPC_ARBITRUM_SEPOLIA \
+  --broadcast \
+  -vv
+```
+
+This mints the 34 039 500 AUG-POC tokens to the founder EOA. After execution:
+- The round status becomes `Executed` (terminal).
+- `token.totalSupply()` becomes `34_039_500 * 10^18`.
+- The first month's snapshot is captured at `0` (genesis exception), so
+  `MonthlyMintCap` does not bind for this month. From the next UTC month
+  onward, the 10% cap kicks in normally.
+
+## 6. Mainnet flow (later)
+
+Phase 1 mainnet deployment is **gated** on:
+1. A community audit (Code4rena Arena-X, Sherlock Watson, or documented peer
+   review by 2-3 recognized Solidity engineers — see SECURITY.md §7).
+2. A Safe multisig deployed on Arbitrum mainnet with at least 2 hardware-wallet
+   signers, threshold M ≥ 2.
+
+The deploy flow then differs from §2:
+- `ADMIN_ADDRESS` is the Safe multisig address, NOT the deployer EOA.
+- `DeployAugurePhase1.s.sol` will refuse to run because of the
+  `deployer == admin` assertion. Use the alternate `WireRoles.s.sol` flow
+  (planned in a follow-up PR) where the deploy and the role-granting steps
+  are split: the deploy is broadcast from the deployer EOA with no role
+  wiring, then the role grants are executed by the Safe via the Transaction
+  Builder UI.
+- All operational scripts (`ProposeGenesisRound`, `ExecuteRound`, `CancelRound`)
+  default to `BROADCAST=false` and print Safe-compatible calldata. Paste the
+  calldata into the Safe Transaction Builder, get the multisig signatures,
+  broadcast.
 
 ## 7. Rollback / break-glass
 
-- A `Proposed` round can be cancelled by the Safe at any point during the challenge window via `cancelRound`.
-- A `Challenged` round can be cancelled by the Safe based on the off-chain panel vote outcome.
-- A bug discovered in a deployed contract triggers a new deployment + migration. There is no upgradeability switch.
+- A `Proposed` or `Challenged` round can be cancelled by the canceller role at
+  any time. Cancellation is permanent.
+- A bug discovered in a deployed contract triggers a fresh deployment + a
+  documented migration. There is no upgradeability switch — see white paper
+  §7.2 and ARCHITECTURE.md §7.
+- The pause function on the token blocks user-to-user transfers but **does
+  not** block mint or burn (intentional — see SECURITY.md §5.5). Use only as
+  a defensive measure during incident triage.
