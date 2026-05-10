@@ -85,7 +85,15 @@ def post(webhook_url: str, content: str) -> None:
     req = urllib.request.Request(
         webhook_url,
         data=payload,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            # Cloudflare in front of Discord rejects the default
+            # `Python-urllib/X.Y` UA with HTTP 403 + error 1010.
+            "User-Agent": (
+                "Augure-Predictor/1.0 "
+                "(+https://github.com/Elladriel80/augure)"
+            ),
+        },
         method="POST",
     )
     try:
