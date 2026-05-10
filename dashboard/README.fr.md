@@ -5,6 +5,8 @@
 Dashboard read-only de la couche de règlement Phase 1 d'Augure. Affiche l'état live
 de `AugPocToken` et `RoundRegistry` déployés sur Arbitrum Sepolia (testnet).
 
+**Live :** [augure-app.vercel.app](https://augure-app.vercel.app/)
+
 ## Statut
 
 Phase 1 — *active*. Jalon M5. Voir [`/contracts/README.fr.md`](../contracts/README.fr.md)

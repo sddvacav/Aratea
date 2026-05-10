@@ -5,6 +5,8 @@
 Read-only dashboard for the Augure Phase 1 settlement layer. Shows the live state of
 `AugPocToken` and `RoundRegistry` deployed on Arbitrum Sepolia (testnet).
 
+**Live:** [augure-app.vercel.app](https://augure-app.vercel.app/)
+
 ## Status
 
 Phase 1 — *active*. Milestone M5. See [`/contracts/README.md`](../contracts/README.md)

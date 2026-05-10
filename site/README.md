@@ -2,11 +2,11 @@
 
 Public landing page for Augure. Single-file HTML, no build step.
 
-**Live:** [augure-ai.netlify.app](https://augure-ai.netlify.app/)
+**Live:** [augure.vercel.app](https://augure.vercel.app/)
 
 ## Files
 
-- `index.html` — the landing. Bilingual (FR/EN) with IP-based language detection on first visit, language preference persisted in `localStorage`. Three CTAs: Discord, GitHub, Notion whitepaper.
+- `index.html` — the landing. Bilingual (FR/EN) with IP-based language detection on first visit, language preference persisted in `localStorage`. Four CTAs: Discord, GitHub, Dashboard, Notion whitepaper.
 
 ## Edit
 
@@ -16,4 +16,6 @@ The Notion white paper link is **language-aware**: `LINKS.notion` is an object `
 
 ## Deploy
 
-Currently deployed via Netlify drag-and-drop of this folder. To switch to git-driven deploys: in Netlify, *Site settings → Build & deploy → Link repository* → select `Elladriel80/augure` → set publish directory to `site/` → no build command.
+Deployed on Vercel as a static site. The project is git-linked to `Elladriel80/augure` with **Root Directory** = `site/` and no build command — every push to `main` redeploys automatically.
+
+The companion read-only dashboard (Phase 1 on-chain state) lives in `../dashboard/` and is deployed at [augure-app.vercel.app](https://augure-app.vercel.app/).
