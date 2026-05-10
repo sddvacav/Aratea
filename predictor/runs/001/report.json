@@ -1,0 +1,22 @@
+{
+  "run_id": "001",
+  "type": "pipeline",
+  "ts_utc": "2026-05-08T10:45:00Z",
+  "model": {
+    "ensemble": ["climatology", "forecast_blend", "ensemble"],
+    "p_yes": null,
+    "confidence": null,
+    "feature_set_hash": null
+  },
+  "event": {
+    "description": "exploratory snapshot — 60 markets across 6 US cities (Austin, Chicago, Denver, Miami, Philadelphia, San Antonio), high/low temperature contracts. No single event was selected for entry.",
+    "resolution_time_utc": null
+  },
+  "markets": [],
+  "scoring": {
+    "brier_model": null,
+    "brier_climatology": null,
+    "brier_best_single_model": null
+  },
+  "notes": "Run 001 was an end-to-end pipeline dry-run on 2026-05-08, not a position. No paper bet was placed (predictor/data/ledger/paper_bets.csv is header-only) and no single market was selected, so the markets array is intentionally empty. Phase 1 N counter remains at 0 until Run 002 opens an actual paper position. See REPORT.md for the full builder-log narrative and the on-disk artifacts under predictor/data/."
+}
