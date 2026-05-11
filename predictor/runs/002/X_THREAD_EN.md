@@ -9,9 +9,10 @@ Meta-ensemble (ECMWF + GraphCast + GFS + JMA): P(YES) = 14.6%
 Climatology (29 yrs): 15.4%
 Kalshi implies 36%. Edge: −2136 bps.
 
-Position: BUY NO on Kalshi (KXLOWTNYC-26MAY11-B50.5).
+Paper position: BUY NO on Kalshi (KXLOWTNYC-26MAY11-B50.5), $100, ~156 contracts.
+Phase 1 = prove the edge before real money. Resolves May 12 ~04:00 UTC.
 
-Logged publicly. Resolves May 12 ~04:00 UTC.
+Logged publicly.
 
 ---
 
