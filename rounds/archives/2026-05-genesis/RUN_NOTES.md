@@ -48,8 +48,8 @@ Les fichiers `predict.py`, `simulate.py`, `fetch_markets.py`, `fetch_forecast.py
 
 ## Décisions opérationnelles laissées à JS
 
-1. **Ratification du run réel** : si JS valide les chiffres, on ouvre la fenêtre de challenge 30 jours par PR sur le repo augure. Sinon, JS amende les coefficients par phase et le ratificateur (lui-même en phase 1) merge.
-2. **Round séparé pour augure-rounds + docs** : le travail de méta-design (RUBRIC, PROMPT, value engine, README monorepo, structure rounds/contracts/docs) n'est PAS dans cette valuation. À traiter dans un round séparé `2026-05-augure-rounds-genesis` ou agréger dans le round régulier `2026-06`. JS tranche.
+1. **Ratification du run réel** : si JS valide les chiffres, on ouvre la fenêtre de challenge 30 jours par PR sur le repo aratea. Sinon, JS amende les coefficients par phase et le ratificateur (lui-même en phase 1) merge.
+2. **Round séparé pour aratea-rounds + docs** : le travail de méta-design (RUBRIC, PROMPT, value engine, README monorepo, structure rounds/contracts/docs) n'est PAS dans cette valuation. À traiter dans un round séparé `2026-05-aratea-rounds-genesis` ou agréger dans le round régulier `2026-06`. JS tranche.
 3. **Travail invisible** : R&D exploratoire, lectures de papers, debug par expérimentation. Non capté par le rubric fact-only. JS peut accepter ce trade-off (cap-table un peu sous-estimée mais système objectif) ou ouvrir un mécanisme complémentaire (mais qui sortirait du fact-only — à éviter).
 4. **Audit des fichiers non lus** : `predict.py`, `simulate.py`, `fetch_markets.py`, `fetch_forecast.py`, `audit_resolution.py`, `analyze_microstructure.py` n'ont pas été lus directement. Si JS estime que l'un de ces fichiers contient une masse de travail substantielle non-comptabilisée, l'agent peut les lire et amender.
 
@@ -67,5 +67,5 @@ Les fichiers `predict.py`, `simulate.py`, `fetch_markets.py`, `fetch_forecast.py
 - [ ] Validation founder (JS)
 - [ ] Commit + push de l'archive run sur GitHub
 - [ ] Ouverture de la fenêtre de challenge 30 jours
-- [ ] Décision sur le round séparé augure-rounds genesis
+- [ ] Décision sur le round séparé aratea-rounds genesis
 - [ ] Ratification finale et premier mint multisig (Phase 2 du repo, smart contract requis OU mint manuel via Safe en intermédiaire)

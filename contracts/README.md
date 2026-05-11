@@ -2,7 +2,7 @@
 
 # contracts
 
-Solidity smart contracts for the Augure protocol. **Phase 1 in progress** — building the on-chain settlement layer for the labor-value mint mechanism described in [`/docs/token_model.md`](../docs/token_model.md).
+Solidity smart contracts for the Aratea protocol. **Phase 1 in progress** — building the on-chain settlement layer for the labor-value mint mechanism described in [`/docs/token_model.md`](../docs/token_model.md).
 
 ## Status
 
@@ -12,11 +12,11 @@ Phase 1 — *active*. Milestones M0 through M5. See [`/docs/architecture.md`](..
 
 The on-chain primitives that ratify and execute the monthly mint rounds already produced off-chain (see [`/rounds/`](../rounds/)):
 
-1. **`AugPocToken`** — ERC-20 with `ERC20Permit`, `AccessControl`, and `Pausable`. 18 decimals (Ethereum standard). No fixed cap — issuance is regulated by `RoundRegistry` enforcing the 10 % monthly cap. Four roles: `DEFAULT_ADMIN_ROLE`, `MINTER_ROLE` (RoundRegistry), `PAUSER_ROLE` (Safe), `BURNER_ROLE` (reserved for the future `AugConverter` that will execute the `AUG-POC → AUG` conversion at the Phase 2 DAO launch — see white paper §7.2). Pause blocks user-to-user transfers only; mint and burn remain operational.
+1. **`AugPocToken`** — ERC-20 with `ERC20Permit`, `AccessControl`, and `Pausable`. 18 decimals (Ethereum standard). No fixed cap — issuance is regulated by `RoundRegistry` enforcing the 10 % monthly cap. Four roles: `DEFAULT_ADMIN_ROLE`, `MINTER_ROLE` (RoundRegistry), `PAUSER_ROLE` (Safe), `BURNER_ROLE` (reserved for the future `AraConverter` that will execute the `AUG-POC → ARA` conversion at the Phase 2 DAO launch — see white paper §7.2). Pause blocks user-to-user transfers only; mint and burn remain operational.
 2. **`RoundRegistry`** — propose / challenge / execute / cancel lifecycle for monthly mint rounds. Each round is anchored to its IPFS hash (the `valuation_report.md` snapshot from `/rounds/archives/<round-id>/`).
 3. **`MonthlyMintCap`** — pure library computing the 10 % monthly cap from circulating supply at the start of each calendar month (UTC).
 
-Out of scope in Phase 1 (scaffolded, not implemented): on-chain `AUG` governance token + `Governor`, automated NAV oracle, parametric mutual contracts, on-chain Top-X holder voting.
+Out of scope in Phase 1 (scaffolded, not implemented): on-chain `ARA` governance token + `Governor`, automated NAV oracle, parametric mutual contracts, on-chain Top-X holder voting.
 
 ## Layout
 

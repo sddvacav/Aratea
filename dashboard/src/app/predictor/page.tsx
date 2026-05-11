@@ -7,7 +7,7 @@ import { RunHistoryTable } from "@/components/RunHistoryTable";
 import { loadManifest } from "@/lib/manifest.server";
 
 export const metadata: Metadata = {
-  title: "Predictor — augure",
+  title: "Predictor — aratea",
   description:
     "Predictor learning loop: features under test, per-run Brier vs market, decision history.",
   robots: { index: false, follow: false },
@@ -47,7 +47,7 @@ export default async function PredictorPage() {
           Predictor — learning loop
         </h1>
         <p className="text-sm text-muted max-w-3xl">
-          Augure is a weather-factor discovery engine. Every named feature here
+          Aratea is a weather-factor discovery engine. Every named feature here
           is a hypothesis; every training run measures whether it carries
           signal. The bench is the same row-set <code className="text-text">
           kalshi_mid</code> Brier — beat the market, on its own ground.

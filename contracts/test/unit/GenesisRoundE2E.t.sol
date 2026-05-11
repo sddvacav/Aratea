@@ -8,7 +8,7 @@ import {RoundRegistry} from "../../src/rounds/RoundRegistry.sol";
 import {IAugPocToken} from "../../src/interfaces/IAugPocToken.sol";
 import {IRoundRegistry} from "../../src/interfaces/IRoundRegistry.sol";
 
-/// @title  GenesisRoundE2E — end-to-end reproduction of the Augure genesis mint
+/// @title  GenesisRoundE2E — end-to-end reproduction of the Aratea genesis mint
 /// @notice This test plays the exact genesis scenario described in white paper section 11
 ///         and the off-chain artefacts under `rounds/archives/2026-05-genesis/`:
 ///           - one beneficiary (the founder's EOA, holder Elladriel80)

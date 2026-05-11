@@ -1,8 +1,8 @@
-# Modèle de tokens — Augure POC
+# Modèle de tokens — Aratea POC
 
 *Date : 2026-05-08 — version 0.3, monorepo*
 
-> Ce document est la version canonique du modèle de tokens, hébergée dans le repo public Augure. Une version de travail est conservée dans le workspace local du founder.
+> Ce document est la version canonique du modèle de tokens, hébergée dans le repo public Aratea. Une version de travail est conservée dans le workspace local du founder.
 
 ## 1. Principe fondateur
 
@@ -18,14 +18,14 @@ Le token AUG-POC représente une part de la valeur travail accumulée dans le pr
 - **Décimales :** 18 (standard Ethereum). Choix retenu 2026-05-09 pour la compatibilité maximale avec l'écosystème Web3 (DEX, indexeurs, wallets). L'unité de compte fonctionnelle reste le **sat** : la convention 1 sat = 1 token est imposée par construction au mint au NAV initial, indépendamment du nombre de décimales du contract ERC-20.
 - **Unité de compte :** BTC. Tous les calculs internes (NAV, taux horaires, valuations) sont en BTC ou sats.
 - **NAV initiale :** **1 sat = 1 token** (atomique, validé 2026-05-08). Aucune conversion mentale nécessaire — le nombre de tokens détenu lit directement la valeur travail apportée en sats.
-- **Convertibilité future :** mécanisme de conversion AUG-POC → AUG (DAO Augure) inscrit dans le contract dès le départ. Ratio voté à 67 % par les holders au moment du lancement DAO.
+- **Convertibilité future :** mécanisme de conversion AUG-POC → ARA (DAO Aratea) inscrit dans le contract dès le départ. Ratio voté à 67 % par les holders au moment du lancement DAO.
 
 ## 3. Le mint, mécanique unifiée
 
 Le projet n'accepte qu'**un seul type d'input** au moteur de valuation : un **fait observable**.
 
 - Pour le cash : un dépôt on-chain (BTC, ou USDC convertis au spot du jour de subscription). Envoyé à une adresse multisig "subscription pending", non automatiquement intégré à la treasury.
-- Pour le travail : un PR mergé sur le repo Augure, ou un commit signé sur main, ou une review publique sur un PR. Ce qui n'est pas dans Git n'existe pas.
+- Pour le travail : un PR mergé sur le repo Aratea, ou un commit signé sur main, ou une review publique sur un PR. Ce qui n'est pas dans Git n'existe pas.
 
 L'agent IA produit la valuation **strictement** à partir de ces artefacts (diff, fichiers touchés, tests, description du PR, commits, reviews). **Aucune déclaration, aucune submission, aucune heure auto-rapportée.**
 

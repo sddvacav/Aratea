@@ -67,7 +67,7 @@ for (let i = 0; i < parts.length; i++) {
       'Content-Type': 'application/json',
       // Cloudflare in front of Discord rejects bare/default UAs with
       // HTTP 403 + error 1010. Send a descriptive UA to avoid that.
-      'User-Agent': 'Augure-Announce/1.0 (+https://github.com/Elladriel80/augure)',
+      'User-Agent': 'Aratea-Announce/1.0 (+https://github.com/Elladriel80/aratea)',
     },
     body,
   });

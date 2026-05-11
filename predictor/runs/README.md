@@ -1,7 +1,7 @@
 # predictor/runs/
 
 Public, append-only record of every Phase 1 prediction-market run.
-Augure Phase 1 is about measuring a predictive edge before any
+Aratea Phase 1 is about measuring a predictive edge before any
 decentralized parametric mutual is built — every paper or live
 position has to leave a trace here.
 

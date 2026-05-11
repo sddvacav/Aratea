@@ -49,7 +49,7 @@ from src.config import DATA_DIR  # noqa: E402
 CACHE_DIR = DATA_DIR / "forecasts" / "nws_ndfd"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-USER_AGENT = "Augure-Predictor/1.0 (+https://github.com/Elladriel80/augure)"
+USER_AGENT = "Aratea-Predictor/1.0 (+https://github.com/Elladriel80/aratea)"
 BASE = "https://api.weather.gov"
 THROTTLE_SECONDS = 1.0
 _last_call_at: float = 0.0

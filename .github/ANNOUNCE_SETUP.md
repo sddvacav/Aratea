@@ -28,7 +28,7 @@ Set these in **Settings → Secrets and variables → Actions → Variables**.
 
 | Variable | Purpose | Default |
 |---|---|---|
-| `PROJECT_NAME` | Display name in messages | `Augure` |
+| `PROJECT_NAME` | Display name in messages | `Aratea` |
 | `PROJECT_TAGLINE` | One-line tagline appended to Discord messages | `Decentralized prediction markets for weather risk` |
 | `ANNOUNCE_DRY_RUN` | Set to `true` to skip actual posting (logs only) | unset |
 | `ANNOUNCE_DISABLE_DISCORD` | Set to `true` to skip Discord posting | unset |
@@ -50,7 +50,7 @@ Set these in **Settings → Secrets and variables → Actions → Variables**.
 
 1. Go to the Discord channel where you want releases announced.
 2. Click the gear icon (Edit Channel) → **Integrations** → **Webhooks**.
-3. Click **New Webhook**, name it `Augure Releases`, optionally set an avatar.
+3. Click **New Webhook**, name it `Aratea Releases`, optionally set an avatar.
 4. Copy the webhook URL.
 5. Paste it into the `DISCORD_WEBHOOK_URL` secret on GitHub.
 
@@ -155,7 +155,7 @@ When auto-posting fails, fall back to **`ANNOUNCE_TEMPLATES.md`** for ready-to-p
 ## Files in this system
 
 ```
-augure/.github/
+aratea/.github/
 ├── workflows/
 │   ├── announce-release.yml          # release announcement on tag push (EN)
 │   └── weekly-recap.yml              # weekly recap, every Sunday ~20:00 Paris (FR)

@@ -2,7 +2,7 @@
 collect_github_activity.py — aggregate observable contributions from Git for a monthly round.
 
 Usage:
-    python scripts/collect_github_activity.py --month 2026-05 --repo augure-protocol/augure
+    python scripts/collect_github_activity.py --month 2026-05 --repo aratea-protocol/aratea
 
 Output:
     rounds/<month>/raw.json — per-contributor observable artifacts, ready for the valuation agent.
@@ -56,7 +56,7 @@ class ContributorMonth:
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--month", required=True, help="YYYY-MM")
-    p.add_argument("--repo", required=True, help="owner/name (Augure main repo)")
+    p.add_argument("--repo", required=True, help="owner/name (Aratea main repo)")
     p.add_argument("--rounds-dir", default="rounds")
     p.add_argument("--wallets", default="WALLETS.md")
     p.add_argument("--token", default=os.getenv("GITHUB_TOKEN"))

@@ -1,4 +1,4 @@
-# HOURLY_RATES — grille de taux Augure (BTC)
+# HOURLY_RATES — grille de taux Aratea (BTC)
 
 > [Read in English](HOURLY_RATES.md)
 

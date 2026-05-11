@@ -1,6 +1,6 @@
-# Augure Weather Predictor — Kalshi POC
+# Aratea Weather Predictor — Kalshi POC
 
-Moteur prédictif d'Augure — testé en paper-trading sur les contrats Kalshi snow/rain, avant tout déploiement réel. Cette POC valide l'edge prédictif qui motive la suite du projet (DAO, mutuelle paramétrique).
+Moteur prédictif d'Aratea — testé en paper-trading sur les contrats Kalshi snow/rain, avant tout déploiement réel. Cette POC valide l'edge prédictif qui motive la suite du projet (DAO, mutuelle paramétrique).
 
 ## Objectif
 

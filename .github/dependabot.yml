@@ -1,4 +1,4 @@
-# Dependabot configuration for the Augure monorepo.
+# Dependabot configuration for the Aratea monorepo.
 #
 # Runs weekly on every ecosystem present in the repo so a vulnerable
 # dependency does not sit unpatched. The default reviewer is the repo

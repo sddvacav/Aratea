@@ -1,19 +1,19 @@
 > [Read in English](README.md)
 
-# Augure
+# Aratea
 
 **Marchés prédictifs météo et mutuelle paramétrique décentralisée, open-source.**
 
-Augure est en phase initiale. Sa première étape est de valider un edge prédictif sur les marchés météo Kalshi avant de construire l'infrastructure DAO pour la mutuelle paramétrique adossée à un pool de mutualisation.
+Aratea est en phase initiale. Sa première étape est de valider un edge prédictif sur les marchés météo Kalshi avant de construire l'infrastructure DAO pour la mutuelle paramétrique adossée à un pool de mutualisation.
 
-> **Note importante** — Augure n'est pas une assurance au sens du Code des assurances ni de Solvency II. C'est une **mutuelle discrétionnaire décentralisée** : les membres mutualisent un pool de capital, et l'exécution des indemnisations relève d'une mécanique paramétrique automatique adossée à des oracles, gouvernée par les holders. Cf. white paper, section 4.
+> **Note importante** — Aratea n'est pas une assurance au sens du Code des assurances ni de Solvency II. C'est une **mutuelle discrétionnaire décentralisée** : les membres mutualisent un pool de capital, et l'exécution des indemnisations relève d'une mécanique paramétrique automatique adossée à des oracles, gouvernée par les holders. Cf. white paper, section 4.
 
 ## Structure du repo
 
 Ce monorepo s'organise en quatre dossiers de premier niveau :
 
 ```
-augure/
+aratea/
 ├── predictor/      ← code de prédiction (Phase 1 : POC Kalshi)
 ├── contracts/      ← smart contracts (Phase 2+ : token, gouvernance, mutuelle)
 ├── rounds/         ← mécanique d'émission de tokens (live : mint AUG-POC valeur travail)
@@ -35,12 +35,12 @@ Documentation transverse : modèle économique du token, spec du moteur de valua
 ## Phases
 
 1. **POC Kalshi** *(en cours)* — valider l'edge prédictif. Critère go/no-go : ensemble IA bat le best single model et bat la climato sur N>50 events.
-2. **DAO Augure** — pool de mutualisation tokenisé façon Nexus Mutual, émission des contrats paramétriques via AMM/orderbook, pricing via le moteur prédictif.
+2. **DAO Aratea** — pool de mutualisation tokenisé façon Nexus Mutual, émission des contrats paramétriques via AMM/orderbook, pricing via le moteur prédictif.
 3. **DePIN data layer** — stations météo physiques rémunérées en token (partenariat WeatherXM ou réseau propre).
 
 ## Modèle de token en une phrase
 
-Un seul token (AUG-POC, puis AUG après lancement DAO). Une seule mécanique : chaque apport — cash ou travail — est valorisé en équivalent BTC et minté à la NAV. Pas de buckets pré-attribués, pas de bonus founder, pas de catégorie privilégiée. La cap table émerge des valuations accumulées. Détail dans [`docs/token_model.md`](docs/token_model.md).
+Un seul token (AUG-POC, puis ARA après lancement DAO). Une seule mécanique : chaque apport — cash ou travail — est valorisé en équivalent BTC et minté à la NAV. Pas de buckets pré-attribués, pas de bonus founder, pas de catégorie privilégiée. La cap table émerge des valuations accumulées. Détail dans [`docs/token_model.md`](docs/token_model.md).
 
 ## Comment participer
 

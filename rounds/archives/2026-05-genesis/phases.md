@@ -1,7 +1,7 @@
 # Genesis round — phase decomposition
 
 *Round identifier : `2026-05-genesis`*
-*Source code : `augure/predictor/` (kalshi-poc imported 2026-05-08)*
+*Source code : `aratea/predictor/` (kalshi-poc imported 2026-05-08)*
 *Decomposition date : 2026-05-08*
 *Method : agent reads actual source files and groups them into logical phases.*
 
@@ -161,10 +161,10 @@ Cette décomposition est l'input de l'agent de valuation pour le round genesis.
 
 ## Hors-scope du round genesis
 
-Les artefacts suivants sont produits par JS mais **ne rentrent pas dans cette valuation** car ils relèvent du repo `augure/rounds/`, `augure/contracts/`, `augure/docs/` (méta-design du système d'émission, pas de code prédiction) :
+Les artefacts suivants sont produits par JS mais **ne rentrent pas dans cette valuation** car ils relèvent du repo `aratea/rounds/`, `aratea/contracts/`, `aratea/docs/` (méta-design du système d'émission, pas de code prédiction) :
 
 - Conception du modèle de tokens AUG-POC (`docs/token_model.md`, `docs/value_engine.md`)
-- Création du repo public `augure-rounds` puis monorepo `augure` (RUBRIC, HOURLY_RATES, PROMPT bilingues, scripts)
+- Création du repo public `aratea-rounds` puis monorepo `aratea` (RUBRIC, HOURLY_RATES, PROMPT bilingues, scripts)
 - Architecture monorepo (rounds/, contracts/, predictor/, docs/)
 
-Ces artefacts feront l'objet d'un round séparé `2026-05-augure-rounds-genesis` ou seront intégrés au premier round mensuel régulier `2026-06`. Décision à trancher avec JS.
+Ces artefacts feront l'objet d'un round séparé `2026-05-aratea-rounds-genesis` ou seront intégrés au premier round mensuel régulier `2026-06`. Décision à trancher avec JS.

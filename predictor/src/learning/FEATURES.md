@@ -1,6 +1,6 @@
 # Feature registry — learned predictor
 
-> Augure is not just a Kalshi paper trader. It is a **weather-factor
+> Aratea is not just a Kalshi paper trader. It is a **weather-factor
 > discovery engine**. Each row in the table below is a *named hypothesis*
 > about what drives the gap between forecast and observation. Each
 > training run measures the actual Brier contribution per name. Bets are

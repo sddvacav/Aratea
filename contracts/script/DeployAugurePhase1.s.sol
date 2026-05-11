@@ -7,7 +7,7 @@ import {AugPocToken} from "../src/token/AugPocToken.sol";
 import {RoundRegistry} from "../src/rounds/RoundRegistry.sol";
 import {IAugPocToken} from "../src/interfaces/IAugPocToken.sol";
 
-/// @title  DeployAugurePhase1 — deploys the Augure Phase 1 settlement layer
+/// @title  DeployAugurePhase1 — deploys the Aratea Phase 1 settlement layer
 /// @notice Deploys AugPocToken and RoundRegistry, then wires the roles correctly. The
 ///         signer is configured EXTERNALLY through Foundry's CLI flags — the script does
 ///         not read a private key from the environment, which makes it usable with a
@@ -47,7 +47,7 @@ import {IAugPocToken} from "../src/interfaces/IAugPocToken.sol";
 ///             DEFAULT_ADMIN_ROLE   → ADMIN_ADDRESS    (granted by constructor)
 ///             MINTER_ROLE          → RoundRegistry    (granted here, once registry exists)
 ///             PAUSER_ROLE          → ADMIN_ADDRESS    (granted here)
-///             BURNER_ROLE          → nobody           (reserved for AugConverter at Phase 2)
+///             BURNER_ROLE          → nobody           (reserved for AraConverter at Phase 2)
 ///           RoundRegistry:
 ///             DEFAULT_ADMIN_ROLE   → ADMIN_ADDRESS    (granted by constructor)
 ///             ROUND_PROPOSER_ROLE  → ADMIN_ADDRESS    (granted here)

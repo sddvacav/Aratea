@@ -2,10 +2,10 @@
 
 # dashboard
 
-Read-only dashboard for the Augure Phase 1 settlement layer. Shows the live state of
+Read-only dashboard for the Aratea Phase 1 settlement layer. Shows the live state of
 `AugPocToken` and `RoundRegistry` deployed on Arbitrum Sepolia (testnet).
 
-**Live:** [augure-app.vercel.app](https://augure-app.vercel.app/)
+**Live:** [aratea-app.vercel.app](https://aratea-app.vercel.app/)
 
 ## Status
 

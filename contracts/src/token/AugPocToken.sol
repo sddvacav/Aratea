@@ -6,8 +6,8 @@ import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20P
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 
-/// @title  AugPocToken — Augure Phase 1 labor-value token (AUG-POC)
-/// @notice ERC-20 token representing the labor-value pool of the Augure protocol during Phase 1.
+/// @title  AugPocToken — Aratea Phase 1 labor-value token (AUG-POC)
+/// @notice ERC-20 token representing the labor-value pool of the Aratea protocol during Phase 1.
 ///         Issuance is regulated externally by RoundRegistry (M3), which holds MINTER_ROLE and
 ///         enforces the 10% monthly cap derived from circulating supply.
 /// @dev    18 decimals (Ethereum standard). The "1 sat = 1 token" convention is imposed at mint
@@ -18,8 +18,8 @@ import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 ///           - DEFAULT_ADMIN_ROLE : grants and revokes the other roles
 ///           - MINTER_ROLE        : issues new tokens (granted to RoundRegistry at deploy)
 ///           - PAUSER_ROLE        : pauses/unpauses user-to-user transfers
-///           - BURNER_ROLE        : burns existing tokens; reserved for the future AugConverter
-///                                  contract that will execute AUG-POC → AUG conversion at the
+///           - BURNER_ROLE        : burns existing tokens; reserved for the future AraConverter
+///                                  contract that will execute AUG-POC → ARA conversion at the
 ///                                  Phase 2 DAO launch (see white paper §7.2). NOT granted at
 ///                                  deploy — granted later by admin vote.
 ///

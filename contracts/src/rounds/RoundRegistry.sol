@@ -8,7 +8,7 @@ import {IAugPocToken} from "../interfaces/IAugPocToken.sol";
 import {IRoundRegistry} from "../interfaces/IRoundRegistry.sol";
 import {MonthlyMintCap} from "./MonthlyMintCap.sol";
 
-/// @title  RoundRegistry — on-chain lifecycle for the Augure monthly mint rounds
+/// @title  RoundRegistry — on-chain lifecycle for the Aratea monthly mint rounds
 /// @notice Implements the propose / challenge / execute / cancel state machine described
 ///         in `contracts/docs/ROUND-LIFECYCLE.md` and white paper §7.3. The registry holds
 ///         no funds; on `executeRound` it instructs `AugPocToken` to mint to ratified

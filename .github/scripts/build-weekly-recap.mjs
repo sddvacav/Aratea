@@ -6,7 +6,7 @@
  * builder-log voice. Output goes to `recap.discord.md` for the Discord poster.
  *
  * Reads from environment:
- *   PROJECT_NAME       - display name (default: "Augure")
+ *   PROJECT_NAME       - display name (default: "Aratea")
  *   PROJECT_TAGLINE    - one-liner footer (default: weather risk tagline FR)
  *   RECAP_LOOKBACK_DAYS - integer, default 7
  *   RECAP_SKIP_IF_EMPTY - "true" (default) to exit cleanly without producing
@@ -27,7 +27,7 @@
 import { execSync } from 'node:child_process';
 import { writeFileSync, appendFileSync, existsSync, readFileSync } from 'node:fs';
 
-const PROJECT_NAME = process.env.PROJECT_NAME || 'Augure';
+const PROJECT_NAME = process.env.PROJECT_NAME || 'Aratea';
 const PROJECT_TAGLINE =
   process.env.PROJECT_TAGLINE ||
   'Marchés prédictifs décentralisés pour le risque météo';

@@ -4,8 +4,8 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Augure dashboard",
-  description: "On-chain state of the Augure Phase 1 settlement layer",
+  title: "Aratea dashboard",
+  description: "On-chain state of the Aratea Phase 1 settlement layer",
   robots: { index: false, follow: false },
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="border-b border-border">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
             <Link href="/" className="font-mono text-lg font-semibold tracking-tight">
-              augure
+              aratea
               <span className="text-muted">.</span>
               <span className="text-accent">dashboard</span>
             </Link>
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 predictor
               </Link>
               <a
-                href="https://github.com/Elladriel80/augure"
+                href="https://github.com/Elladriel80/aratea"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="hover:text-accent text-muted"

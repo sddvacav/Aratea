@@ -1,6 +1,6 @@
 > [Lire en français](ARCHITECTURE.fr.md)
 
-# Architecture — Augure contracts (Phase 1)
+# Architecture — Aratea contracts (Phase 1)
 
 *Version 0.1 — 2026-05-09*
 

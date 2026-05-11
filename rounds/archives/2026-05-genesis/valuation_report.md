@@ -1,9 +1,9 @@
 # Valuation report — round `2026-05-genesis` (REAL RUN)
 
 *Date : 2026-05-08*
-*Source : décomposition `phases.md` + lecture directe des fichiers source dans `augure/predictor/`*
+*Source : décomposition `phases.md` + lecture directe des fichiers source dans `aratea/predictor/`*
 *Agent de valuation : application directe du prompt versionné `rounds/agent/PROMPT.fr.md` v0.2*
-*Statut : **RUN RÉEL** — basé sur les artefacts Git effectivement présents dans `augure/predictor/`. Le DRY_RUN_NOTES.md précédent a été conservé pour traçabilité de la méthode.*
+*Statut : **RUN RÉEL** — basé sur les artefacts Git effectivement présents dans `aratea/predictor/`. Le DRY_RUN_NOTES.md précédent a été conservé pour traçabilité de la méthode.*
 
 ---
 
@@ -222,7 +222,7 @@ NAV initiale : **1 sat = 1 token** (validée 2026-05-08).
 5. **Phase B-1 (NWS resolution)** revue à la hausse (de 18h → 22h) : 394 lignes de code domain-aware avec qualité documentaire élevée + 9 tests substantiels. Coefficient qualité durci à ×1,20.
 6. **Phase A.1** : décomposition 6h ML + 12h quant + 10h senior dev (vs 6+10+8 du dry-run). Les scripts forward_predict + score_forward sont substantiels (148L + 192L) et incluent une discipline anti-leakage explicite + comparaison vs kalshi_mid → +2h senior dev.
 7. **Phase Daily Run** ajoutée vs dry-run (4h × 130k × 1,10 × 1,10 = 629k sats). N'avait pas été comptabilisée explicitement au dry-run.
-8. **Travail invisible non capté** : R&D exploratoire (lecture papers Aurora/Pangu, prototypes abandonnés, debug DM), lectures de specs Kalshi/NWS, réunions stratégiques. Non comptabilisé conformément au RUBRIC fact-only. À assumer ou compenser via un round séparé "augure-rounds" pour les artefacts du repo de gouvernance.
+8. **Travail invisible non capté** : R&D exploratoire (lecture papers Aurora/Pangu, prototypes abandonnés, debug DM), lectures de specs Kalshi/NWS, réunions stratégiques. Non comptabilisé conformément au RUBRIC fact-only. À assumer ou compenser via un round séparé "aratea-rounds" pour les artefacts du repo de gouvernance.
 9. **Évolution vs dry-run** : total 34 040 000 sats (real run) vs 27 299 400 sats (dry-run), soit **+24,7 %**. Dans la zone d'incertitude ±20-25 % flaggée au dry-run.
 
 ---

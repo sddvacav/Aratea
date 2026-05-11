@@ -54,7 +54,7 @@ COASTLINE_URL = (
     "geojson/ne_50m_coastline.geojson"
 )
 
-USER_AGENT = "Augure-Predictor/1.0 (+https://github.com/Elladriel80/augure)"
+USER_AGENT = "Aratea-Predictor/1.0 (+https://github.com/Elladriel80/aratea)"
 
 # Throttle for Overpass; the public instance asks for ~1 req every 2 sec.
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"

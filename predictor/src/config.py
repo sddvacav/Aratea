@@ -26,7 +26,7 @@ WEATHER_SERIES_TICKERS = [
 # NWS NDFD) avec un nom et une URL contactable, comme demandé par les
 # bonnes pratiques de chacun. NE PAS y inclure d'identifiants
 # personnels — la chaîne ressort dans les logs serveur côté upstream.
-USER_AGENT = "augure-predictor/0.1 (+https://github.com/Elladriel80/augure)"
+USER_AGENT = "aratea-predictor/0.1 (+https://github.com/Elladriel80/aratea)"
 
 # Paramètres de simulation
 SIMULATION = {

@@ -1,6 +1,6 @@
 # predictor/runs/ — convention
 
-Phase 1 of Augure (the Kalshi POC) is about **measuring a predictive
+Phase 1 of Aratea (the Kalshi POC) is about **measuring a predictive
 edge** on weather prediction markets before any decentralized
 parametric mutual is built. Every paper or live position taken under
 that POC must leave a public, verifiable trace. This directory is the

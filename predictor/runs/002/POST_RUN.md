@@ -15,4 +15,4 @@ Scoring (run) :
 
 Compteur Phase 1 : 1 / 50 positions live résolues. 49 à venir.
 
-Log complet : https://github.com/Elladriel80/augure/blob/main/predictor/runs/002/report.json
+Log complet : https://github.com/Elladriel80/aratea/blob/main/predictor/runs/002/report.json

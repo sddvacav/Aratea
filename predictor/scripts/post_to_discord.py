@@ -90,8 +90,8 @@ def post(webhook_url: str, content: str) -> None:
             # Cloudflare in front of Discord rejects the default
             # `Python-urllib/X.Y` UA with HTTP 403 + error 1010.
             "User-Agent": (
-                "Augure-Predictor/1.0 "
-                "(+https://github.com/Elladriel80/augure)"
+                "Aratea-Predictor/1.0 "
+                "(+https://github.com/Elladriel80/aratea)"
             ),
         },
         method="POST",

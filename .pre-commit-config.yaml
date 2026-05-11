@@ -1,4 +1,4 @@
-# Pre-commit hooks for the Augure monorepo.
+# Pre-commit hooks for the Aratea monorepo.
 #
 # Install:
 #   pip install pre-commit

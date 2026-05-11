@@ -9,7 +9,7 @@
  * Reads from environment:
  *   GIT_TAG          - The tag being announced (e.g. v0.1.0)
  *   REPO_URL         - Full repo URL (https://github.com/owner/repo)
- *   PROJECT_NAME     - Display name (e.g. "Augure")
+ *   PROJECT_NAME     - Display name (e.g. "Aratea")
  *   PROJECT_TAGLINE  - Short tagline used as fallback context
  *
  * Strategy (priority order):
@@ -25,7 +25,7 @@ import { writeFileSync, existsSync, readFileSync, appendFileSync } from 'node:fs
 
 const TAG = process.env.GIT_TAG;
 const REPO_URL = process.env.REPO_URL || '';
-const PROJECT_NAME = process.env.PROJECT_NAME || 'Augure';
+const PROJECT_NAME = process.env.PROJECT_NAME || 'Aratea';
 const PROJECT_TAGLINE = process.env.PROJECT_TAGLINE || 'Decentralized prediction markets for weather risk';
 
 if (!TAG) {

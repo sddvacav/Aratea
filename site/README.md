@@ -1,8 +1,8 @@
 # site/
 
-Public landing page for Augure. Single-file HTML, no build step.
+Public landing page for Aratea. Single-file HTML, no build step.
 
-**Live:** [augure.vercel.app](https://augure.vercel.app/)
+**Live:** [aratea.vercel.app](https://aratea.vercel.app/)
 
 ## Files
 
@@ -16,6 +16,6 @@ The Notion white paper link is **language-aware**: `LINKS.notion` is an object `
 
 ## Deploy
 
-Deployed on Vercel as a static site. The project is git-linked to `Elladriel80/augure` with **Root Directory** = `site/` and no build command — every push to `main` redeploys automatically.
+Deployed on Vercel as a static site. The project is git-linked to `Elladriel80/aratea` with **Root Directory** = `site/` and no build command — every push to `main` redeploys automatically.
 
-The companion read-only dashboard (Phase 1 on-chain state) lives in `../dashboard/` and is deployed at [augure-app.vercel.app](https://augure-app.vercel.app/).
+The companion read-only dashboard (Phase 1 on-chain state) lives in `../dashboard/` and is deployed at [aratea-app.vercel.app](https://aratea-app.vercel.app/).

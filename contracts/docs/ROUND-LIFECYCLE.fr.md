@@ -1,6 +1,6 @@
 > [Read in English](ROUND-LIFECYCLE.md)
 
-# Cycle de vie d'un round — contracts Augure (Phase 1)
+# Cycle de vie d'un round — contracts Aratea (Phase 1)
 
 *Version 0.1 — 2026-05-09*
 

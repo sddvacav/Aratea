@@ -6,7 +6,7 @@ import {Script, console2} from "forge-std/Script.sol";
 import {RoundRegistry} from "../src/rounds/RoundRegistry.sol";
 import {IRoundRegistry} from "../src/interfaces/IRoundRegistry.sol";
 
-/// @title  ProposeGenesisRound — proposes the Augure 2026-05-genesis round on the registry
+/// @title  ProposeGenesisRound — proposes the Aratea 2026-05-genesis round on the registry
 /// @notice Propose-time helper. Two modes:
 ///           - Broadcast (BROADCAST=true): signs and broadcasts `proposeRound` using the
 ///             signer configured via Foundry CLI flags (--ledger / --private-key / etc.).

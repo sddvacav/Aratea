@@ -2,7 +2,7 @@
 
 # contracts
 
-Smart contracts Solidity du protocole Augure. **Phase 1 en cours** — construction de la couche de règlement on-chain pour la mécanique de mint valeur-travail décrite dans [`/docs/token_model.md`](../docs/token_model.md).
+Smart contracts Solidity du protocole Aratea. **Phase 1 en cours** — construction de la couche de règlement on-chain pour la mécanique de mint valeur-travail décrite dans [`/docs/token_model.md`](../docs/token_model.md).
 
 ## Statut
 
@@ -12,11 +12,11 @@ Phase 1 — *active*. Jalons M0 à M5. Voir [`/docs/architecture.md`](../docs/ar
 
 Les primitives on-chain qui ratifient et exécutent les rounds mensuels déjà produits off-chain (voir [`/rounds/`](../rounds/)) :
 
-1. **`AugPocToken`** — ERC-20 avec `ERC20Permit`, `AccessControl` et `Pausable`. 18 décimales (standard Ethereum). Pas de cap fixe — l'émission est régulée par `RoundRegistry` qui applique le cap mensuel de 10 %. Quatre rôles : `DEFAULT_ADMIN_ROLE`, `MINTER_ROLE` (RoundRegistry), `PAUSER_ROLE` (Safe), `BURNER_ROLE` (réservé au futur `AugConverter` qui exécutera la conversion `AUG-POC → AUG` au lancement DAO en Phase 2 — cf. white paper §7.2). La pause bloque uniquement les transferts d'utilisateur à utilisateur ; mint et burn restent opérationnels.
+1. **`AugPocToken`** — ERC-20 avec `ERC20Permit`, `AccessControl` et `Pausable`. 18 décimales (standard Ethereum). Pas de cap fixe — l'émission est régulée par `RoundRegistry` qui applique le cap mensuel de 10 %. Quatre rôles : `DEFAULT_ADMIN_ROLE`, `MINTER_ROLE` (RoundRegistry), `PAUSER_ROLE` (Safe), `BURNER_ROLE` (réservé au futur `AraConverter` qui exécutera la conversion `AUG-POC → ARA` au lancement DAO en Phase 2 — cf. white paper §7.2). La pause bloque uniquement les transferts d'utilisateur à utilisateur ; mint et burn restent opérationnels.
 2. **`RoundRegistry`** — cycle de vie propose / challenge / execute / cancel des rounds mensuels de mint. Chaque round est ancré à son hash IPFS (le snapshot du `valuation_report.md` dans `/rounds/archives/<round-id>/`).
 3. **`MonthlyMintCap`** — bibliothèque pure qui calcule le cap mensuel de 10 % à partir du supply circulant en début de mois calendaire (UTC).
 
-Hors périmètre Phase 1 (scaffoldé, pas implémenté) : token de gouvernance `AUG` + `Governor`, oracle NAV automatisé, contrats paramétriques de mutuelle, vote on-chain des Top-X holders.
+Hors périmètre Phase 1 (scaffoldé, pas implémenté) : token de gouvernance `ARA` + `Governor`, oracle NAV automatisé, contrats paramétriques de mutuelle, vote on-chain des Top-X holders.
 
 ## Arborescence
 

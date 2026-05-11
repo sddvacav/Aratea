@@ -1,6 +1,6 @@
 # DRY_RUN_NOTES — round `2026-05-genesis` *(SUPERSEDED)*
 
-> **Ce document est le compte-rendu du dry-run initial fait avant la migration de `kalshi-poc` dans `augure/predictor/`.**
+> **Ce document est le compte-rendu du dry-run initial fait avant la migration de `kalshi-poc` dans `aratea/predictor/`.**
 >
 > **Il a été remplacé par `RUN_NOTES.md` (méthode du run réel) et le `valuation_report.md` actuel reflète désormais le run réel — total 0,34040 BTC vs 0,27299 BTC du dry-run.**
 >

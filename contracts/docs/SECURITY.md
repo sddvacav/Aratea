@@ -1,6 +1,6 @@
 > [Lire en français](SECURITY.fr.md)
 
-# Security & threat model — Augure contracts (Phase 1)
+# Security & threat model — Aratea contracts (Phase 1)
 
 *Version 0.1 — 2026-05-09*
 

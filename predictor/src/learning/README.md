@@ -91,7 +91,7 @@ feature was net noise on this split.
 
 Every training run that lands in `predictor/runs_learning/` is surfaced on
 the public dashboard at
-[augure-app.vercel.app/predictor](https://augure-app.vercel.app/predictor).
+[aratea-app.vercel.app/predictor](https://aratea-app.vercel.app/predictor).
 The page shows the latest run's Brier vs `kalshi_mid` verdict, the full
 feature registry (clickable for the hypothesis, source URL and per-run
 history), the run history table, and the Brier trajectory chart across
@@ -108,5 +108,5 @@ Vercel deploy.
 A learned model that beats `kalshi_mid` is useful as a trader. A
 learned model that names *why* it beats `kalshi_mid` is useful as
 domain knowledge. The latter compounds across markets, vendors, and
-seasons — the former is just edge that decays. Augure builds the
+seasons — the former is just edge that decays. Aratea builds the
 latter.

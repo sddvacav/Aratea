@@ -1,16 +1,16 @@
-# Augure — architecture overview
+# Aratea — architecture overview
 
 *Date : 2026-05-08 — version 0.1*
 
 ## Vision
 
-Augure est un protocole décentralisé de **mutuelle paramétrique météo**, alimenté par un moteur prédictif communautaire. Trois piliers :
+Aratea est un protocole décentralisé de **mutuelle paramétrique météo**, alimenté par un moteur prédictif communautaire. Trois piliers :
 
 1. **Moteur prédictif** : méta-ensemble de modèles météo IA + données crowdsourcées. Open-source, contributif, mesuré sur Kalshi en phase POC.
 2. **DAO mutualiste** : pool de mutualisation tokenisé façon Nexus Mutual. Membres apportent du collatéral, payouts paramétriques déclenchés par oracles météo.
 3. **DePIN data layer** : stations physiques rémunérées en token. Améliore la résolution locale et réduit la dépendance aux feeds gouvernementaux.
 
-> **Précision juridique** — Augure n'est pas un assureur réglementé. Le terme "mutuelle" recouvre ici une **mutuelle discrétionnaire décentralisée** : les membres mutualisent un pool, l'exécution des indemnisations est paramétrique-automatique (oracle on-chain), aucun engagement contractuel d'assureur. Cf. white paper section 4.
+> **Précision juridique** — Aratea n'est pas un assureur réglementé. Le terme "mutuelle" recouvre ici une **mutuelle discrétionnaire décentralisée** : les membres mutualisent un pool, l'exécution des indemnisations est paramétrique-automatique (oracle on-chain), aucun engagement contractuel d'assureur. Cf. white paper section 4.
 
 Les trois piliers se renforcent : meilleure prédiction → meilleur pricing → plus de contrats vendus → plus de stakers attirés → financement de plus de capteurs DePIN → meilleure prédiction.
 
@@ -22,13 +22,13 @@ Objectif : démontrer que le moteur prédictif a un edge mesurable. Pas de produ
 
 Code : `predictor/`. Off-chain entièrement. Bankroll de trading sur Kalshi finance la suite.
 
-### Phase 2 — DAO Augure (token + gouvernance)
+### Phase 2 — DAO Aratea (token + gouvernance)
 
 Démarre une fois la Phase 1 validée. Objectifs :
 - Déployer l'ERC-20 AUG-POC sur Base/Arbitrum/Optimism (chain à trancher).
 - Activer le module mint via les rounds mensuels existants (déjà testés en off-chain).
 - Mettre en place la gouvernance par panel Top-X holders.
-- Convertir AUG-POC vers AUG (token DAO final) par vote ≥ 67 %.
+- Convertir AUG-POC vers ARA (token DAO final) par vote ≥ 67 %.
 
 Code : `contracts/token/`, `contracts/rounds/`, `contracts/governance/`.
 
@@ -44,7 +44,7 @@ Code : `contracts/mutual/`, `predictor/oracle/` (signature des prix), pipeline d
 
 ### Phase 4 — DePIN data layer
 
-Stations physiques (partenariat WeatherXM ou réseau propre, à arbitrer). Récompense en token AUG basée sur :
+Stations physiques (partenariat WeatherXM ou réseau propre, à arbitrer). Récompense en token ARA basée sur :
 - Disponibilité de la station (uptime).
 - Qualité des données (cohérence avec voisins, validation par modèles, pas d'outliers manuels).
 - Densité géographique (bonus pour les zones sous-couvertes).

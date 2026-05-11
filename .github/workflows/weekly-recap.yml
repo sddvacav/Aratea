@@ -15,7 +15,7 @@ name: Weekly Recap (FR)
 # Required: secret DISCORD_WEBHOOK_URL (already configured for announce-release).
 #
 # Optional repo variables:
-#   PROJECT_NAME            - default "Augure"
+#   PROJECT_NAME            - default "Aratea"
 #   PROJECT_TAGLINE_FR      - default "Marchés prédictifs décentralisés pour le risque météo"
 #   RECAP_LOOKBACK_DAYS     - default 7
 #   RECAP_SKIP_IF_EMPTY     - default "true" — set to "false" to force a post even on quiet weeks
@@ -64,7 +64,7 @@ jobs:
 
       - name: Build weekly recap
         env:
-          PROJECT_NAME: ${{ vars.PROJECT_NAME || 'Augure' }}
+          PROJECT_NAME: ${{ vars.PROJECT_NAME || 'Aratea' }}
           PROJECT_TAGLINE: ${{ vars.PROJECT_TAGLINE_FR || 'Marchés prédictifs décentralisés pour le risque météo' }}
           RECAP_LOOKBACK_DAYS: ${{ inputs.lookback_days || vars.RECAP_LOOKBACK_DAYS || '7' }}
           RECAP_SKIP_IF_EMPTY: ${{ inputs.force_post && 'false' || (vars.RECAP_SKIP_IF_EMPTY || 'true') }}

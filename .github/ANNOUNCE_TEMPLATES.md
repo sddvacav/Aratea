@@ -1,6 +1,6 @@
 # Announcement Templates — Manual Backup
 
-These are ready-to-paste English templates for Discord and X, in the **builder-log / dev-in-public** voice we've chosen for Augure.
+These are ready-to-paste English templates for Discord and X, in the **builder-log / dev-in-public** voice we've chosen for Aratea.
 
 Use them when:
 - The CI workflow fails (network, API, secrets) and you need to post anyway.
@@ -9,7 +9,7 @@ Use them when:
 
 **Voice rules** (kept in sync with `feedback_no_assurance_terminology.md`):
 - Say "decentralized mutual" or "parametric coverage", **never** "insurance".
-- Augure is presented as an autonomous project. Do not reference any prior brand.
+- Aratea is presented as an autonomous project. Do not reference any prior brand.
 - Honest, technical-but-readable. No hype. No emojis-as-decoration.
 - One emoji max per X post if it adds signal (e.g. ⚙️ for infra, 📈 for results).
 
@@ -20,7 +20,7 @@ Use them when:
 ### Discord
 
 ```
-### `Augure` — release v0.1.0 shipped
+### `Aratea` — release v0.1.0 shipped
 
 **What's in:**
 
@@ -36,7 +36,7 @@ __Improved__
 __Docs__
 • ARCHITECTURE.md updated for the predictor module
 
-[release notes](<https://github.com/augure/augure/releases/tag/v0.1.0>) · [diff](<https://github.com/augure/augure/compare/v0.0.5...v0.1.0>)
+[release notes](<https://github.com/aratea/aratea/releases/tag/v0.1.0>) · [diff](<https://github.com/aratea/aratea/compare/v0.0.5...v0.1.0>)
 
 _Decentralized prediction markets for weather risk._
 ```
@@ -44,8 +44,8 @@ _Decentralized prediction markets for weather risk._
 ### X (≤280 chars)
 
 ```
-Augure v0.1.0 — Kalshi fetcher + climatology baseline + ECMWF/GFS blend predictor are live. Backtest on April markets next.
-https://github.com/augure/augure/releases/tag/v0.1.0
+Aratea v0.1.0 — Kalshi fetcher + climatology baseline + ECMWF/GFS blend predictor are live. Backtest on April markets next.
+https://github.com/aratea/aratea/releases/tag/v0.1.0
 ```
 
 ---
@@ -55,7 +55,7 @@ https://github.com/augure/augure/releases/tag/v0.1.0
 ### Discord
 
 ```
-### `Augure` — pre-release v0.1.0-alpha shipped
+### `Aratea` — pre-release v0.1.0-alpha shipped
 
 Alpha cut — APIs may still change before v0.1.0. Calling for testers who want to point a wallet at a testnet round.
 
@@ -67,7 +67,7 @@ __Known limits__
 • Settlement uses a placeholder oracle — real Kalshi resolver lands in alpha-2
 • No slashing yet for predictor disputes
 
-[release notes](<https://github.com/augure/augure/releases/tag/v0.1.0-alpha>)
+[release notes](<https://github.com/aratea/aratea/releases/tag/v0.1.0-alpha>)
 
 _Decentralized prediction markets for weather risk._
 ```
@@ -75,8 +75,8 @@ _Decentralized prediction markets for weather risk._
 ### X
 
 ```
-Augure v0.1.0-alpha is out. Round lifecycle works end-to-end on testnet. Looking for a few testers to spar with the predictor disputes flow before stable.
-https://github.com/augure/augure/releases/tag/v0.1.0-alpha
+Aratea v0.1.0-alpha is out. Round lifecycle works end-to-end on testnet. Looking for a few testers to spar with the predictor disputes flow before stable.
+https://github.com/aratea/aratea/releases/tag/v0.1.0-alpha
 ```
 
 ---
@@ -86,7 +86,7 @@ https://github.com/augure/augure/releases/tag/v0.1.0-alpha
 ### Discord
 
 ```
-### `Augure` — Phase 1 milestone
+### `Aratea` — Phase 1 milestone
 
 We ran the predictor against 30 days of live Kalshi weather markets without staking real capital. Results:
 
@@ -98,7 +98,7 @@ __Outcome__
 __What this means__
 The predictor is good enough to be the price-taker for a small live pool. Phase 2 starts: real capital, capped, on a single station cluster.
 
-Full numbers and raw ledger in the repo: [POC report](<https://github.com/augure/augure/blob/main/augure/predictor/reports/2026-05-poc.md>)
+Full numbers and raw ledger in the repo: [POC report](<https://github.com/aratea/aratea/blob/main/aratea/predictor/reports/2026-05-poc.md>)
 
 _Decentralized prediction markets for weather risk._
 ```
@@ -106,7 +106,7 @@ _Decentralized prediction markets for weather risk._
 ### X
 
 ```
-Augure Phase 1 result: 30-day paper run against live Kalshi weather markets. 89 trades sized, edge held after fees, calibration within ±3pp. Moving to live capital, capped, single station cluster.
+Aratea Phase 1 result: 30-day paper run against live Kalshi weather markets. 89 trades sized, edge held after fees, calibration within ±3pp. Moving to live capital, capped, single station cluster.
 ```
 
 ---
@@ -116,7 +116,7 @@ Augure Phase 1 result: 30-day paper run against live Kalshi weather markets. 89 
 ### Discord
 
 ```
-### `Augure` — shipped: parametric round settlement
+### `Aratea` — shipped: parametric round settlement
 
 Round outcomes now resolve from an on-chain oracle commitment fed by the predictor. Replaces the manual settle path used in tests.
 
@@ -127,7 +127,7 @@ __Next__
 • Wire Kalshi resolution prices into the oracle commitment
 • Add dispute window (48h) before payout finalization
 
-PR: <https://github.com/augure/augure/pull/42>
+PR: <https://github.com/aratea/aratea/pull/42>
 
 _Decentralized prediction markets for weather risk._
 ```
@@ -135,8 +135,8 @@ _Decentralized prediction markets for weather risk._
 ### X
 
 ```
-Just shipped on-chain settlement for Augure rounds. Predictor commits, oracle reads, contract pays — no human in the path. Dispute window lands next.
-https://github.com/augure/augure/pull/42
+Just shipped on-chain settlement for Aratea rounds. Predictor commits, oracle reads, contract pays — no human in the path. Dispute window lands next.
+https://github.com/aratea/aratea/pull/42
 ```
 
 ---
@@ -148,7 +148,7 @@ Use this when something broke and you want to be transparent. This builds more t
 ### Discord
 
 ```
-### `Augure` — rolling back v0.2.1
+### `Aratea` — rolling back v0.2.1
 
 We caught a bug in the Kelly sizing path that under-sized trades by ~30% on markets with bid/ask spreads above 5c. No real funds were at risk (still on testnet) but the backtest numbers from the v0.2.1 announcement are wrong.
 
@@ -165,7 +165,7 @@ _Decentralized prediction markets for weather risk._
 ### X
 
 ```
-Heads up: rolled back Augure v0.2.1. Found a Kelly-sizing bug that distorted the backtest numbers I posted yesterday. No funds at risk (testnet only). Re-running with the fix, corrected report by Sunday.
+Heads up: rolled back Aratea v0.2.1. Found a Kelly-sizing bug that distorted the backtest numbers I posted yesterday. No funds at risk (testnet only). Re-running with the fix, corrected report by Sunday.
 ```
 
 ---
@@ -175,7 +175,7 @@ Heads up: rolled back Augure v0.2.1. Found a Kelly-sizing bug that distorted the
 ### Discord
 
 ```
-### `Augure` — week of May 5–9, 2026
+### `Aratea` — week of May 5–9, 2026
 
 What got done:
 
@@ -199,7 +199,7 @@ _Decentralized prediction markets for weather risk._
 ### X
 
 ```
-Augure week recap: predictor stabilized on ECMWF ingestion, contracts -12% gas on settle, contributor docs updated. Phase 1 paper backtest coming next week.
+Aratea week recap: predictor stabilized on ECMWF ingestion, contracts -12% gas on settle, contributor docs updated. Phase 1 paper backtest coming next week.
 ```
 
 ---

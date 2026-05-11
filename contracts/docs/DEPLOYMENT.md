@@ -1,6 +1,6 @@
 > [Lire en français](DEPLOYMENT.fr.md)
 
-# Deployment — Augure contracts (Phase 1)
+# Deployment — Aratea contracts (Phase 1)
 
 *Version 1.0 — 2026-05-09*
 
@@ -95,8 +95,8 @@ What it does:
 4. Grants `PAUSER_ROLE` on the token to the admin.
 5. Grants `ROUND_PROPOSER_ROLE`, `ROUND_EXECUTOR_ROLE`, `ROUND_CANCELLER_ROLE`
    on the registry to the admin.
-6. **`BURNER_ROLE` is NOT granted** — reserved for the future `AugConverter`
-   contract that will execute the AUG-POC → AUG conversion at the Phase 2 DAO
+6. **`BURNER_ROLE` is NOT granted** — reserved for the future `AraConverter`
+   contract that will execute the AUG-POC → ARA conversion at the Phase 2 DAO
    launch (see white paper §7.2).
 7. Asserts every role-wiring property in-script before returning.
 

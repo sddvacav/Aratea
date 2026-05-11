@@ -62,7 +62,7 @@ Référence : I-2 dans l'audit.
 
 ```bash
 pip install pre-commit
-cd "C:\Users\Jean-Sébastien\Documents\Claude\Projects\Assurance décentralisée (1)\augure"
+cd "C:\Users\Jean-Sébastien\Documents\Claude\Projects\Assurance décentralisée (1)\aratea"
 pre-commit install
 ```
 
@@ -106,7 +106,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ```bash
 # Sanity check : le pre-commit attrape bien un faux secret
-cd augure
+cd aratea
 echo "DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/123456789012345678/abcdef1234567890" > /tmp/fake.env
 git add /tmp/fake.env  # hors repo mais bon
 # pre-commit gitleaks doit pop

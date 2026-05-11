@@ -1,8 +1,8 @@
-# Moteur de valuation Augure — fact-only, BTC
+# Moteur de valuation Aratea — fact-only, BTC
 
 *Date : 2026-05-08 — version 0.2, monorepo*
 
-> Ce document est la version canonique du moteur de valuation, hébergée dans le repo public Augure. Voir aussi `rounds/RUBRIC.fr.md` pour les règles opérationnelles précises et `rounds/agent/PROMPT.fr.md` pour le prompt système.
+> Ce document est la version canonique du moteur de valuation, hébergée dans le repo public Aratea. Voir aussi `rounds/RUBRIC.fr.md` pour les règles opérationnelles précises et `rounds/agent/PROMPT.fr.md` pour le prompt système.
 
 ## 1. Mission
 
@@ -51,7 +51,7 @@ valeur_BTC = heures_estimées × taux_BTC_par_heure × ajust_qualité × ajust_i
 
 Le profil est une **variable** (taux marché → BTC, recalibrée trimestriellement). Le **livrable** détermine la valeur (un junior qui produit du senior touche le rate senior pour ce livrable, et inversement).
 
-Sortie : `rounds/archives/YYYY-MM/valuation_report.md` (PR ouverte sur le repo augure).
+Sortie : `rounds/archives/YYYY-MM/valuation_report.md` (PR ouverte sur le repo aratea).
 
 ### Couche C — Challenge & ratification (jours 1-7)
 

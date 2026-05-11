@@ -102,7 +102,7 @@ const res = await fetch(url, {
   headers: {
     'Authorization': authHeader,
     'Content-Type': 'application/json',
-    'User-Agent': 'augure-announce-bot/1.0',
+    'User-Agent': 'aratea-announce-bot/1.0',
   },
   body: JSON.stringify({ text: tweetText }),
 });

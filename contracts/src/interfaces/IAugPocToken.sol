@@ -6,7 +6,7 @@ import {IERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/IERC2
 import {IAccessControl} from "@openzeppelin/contracts/access/IAccessControl.sol";
 
 /// @title  IAugPocToken — minimal external interface of AugPocToken
-/// @notice External shape RoundRegistry (M3) and the future AugConverter (Phase 2) depend on.
+/// @notice External shape RoundRegistry (M3) and the future AraConverter (Phase 2) depend on.
 ///         Inherits standard interfaces so consumers can target either via this single import.
 interface IAugPocToken is IERC20, IERC20Permit, IAccessControl {
     /// @notice Returns the keccak256 hash of "MINTER_ROLE".

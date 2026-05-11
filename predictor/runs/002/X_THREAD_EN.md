@@ -1,5 +1,5 @@
 TWEET 1 (T-1h, pre-run):
-First live position on Augure tonight.
+First live position on Aratea tonight.
 
 Run 001 was a pipeline shake-down. 60 markets scanned, 0 bet placed.
 Run 002 opens the actual book.
@@ -22,4 +22,4 @@ Run 002 resolved <YES|NO>.
 Brier: model <TBD> vs climatology <TBD>.
 First live position closed. Phase 1 counter: 1 / 50.
 
-Full log → github.com/Elladriel80/augure/blob/main/predictor/runs/002/report.json
+Full log → github.com/Elladriel80/aratea/blob/main/predictor/runs/002/report.json

@@ -13,7 +13,7 @@ name: Announce Release
 #   X_ACCESS_TOKEN_SECRET        - X / Twitter user access token secret
 #
 # Optional repository variables (vars):
-#   PROJECT_NAME                 - Display name (default: "Augure")
+#   PROJECT_NAME                 - Display name (default: "Aratea")
 #   PROJECT_TAGLINE              - Short tagline (default: "Decentralized prediction markets for weather risk")
 #   ANNOUNCE_DRY_RUN             - "true" to skip actual posting (still prints messages to logs)
 #   ANNOUNCE_DISABLE_X           - "true" to skip X posting (Discord still runs)
@@ -94,7 +94,7 @@ jobs:
         env:
           GIT_TAG: ${{ steps.resolve.outputs.tag }}
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
-          PROJECT_NAME: ${{ vars.PROJECT_NAME || 'Augure' }}
+          PROJECT_NAME: ${{ vars.PROJECT_NAME || 'Aratea' }}
           PROJECT_TAGLINE: ${{ vars.PROJECT_TAGLINE || 'Decentralized prediction markets for weather risk' }}
         run: node .github/scripts/build-announcement.mjs
 

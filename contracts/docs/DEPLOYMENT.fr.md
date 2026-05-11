@@ -1,6 +1,6 @@
 > [Read in English](DEPLOYMENT.md)
 
-# Déploiement — contracts Augure (Phase 1)
+# Déploiement — contracts Aratea (Phase 1)
 
 *Version 1.0 — 2026-05-09*
 
@@ -95,8 +95,8 @@ Ce qu'il fait :
 4. Accorde `PAUSER_ROLE` sur le token à l'admin.
 5. Accorde `ROUND_PROPOSER_ROLE`, `ROUND_EXECUTOR_ROLE`, `ROUND_CANCELLER_ROLE` sur le
    registry à l'admin.
-6. **`BURNER_ROLE` n'est PAS accordé** — réservé au futur contract `AugConverter` qui
-   exécutera la conversion AUG-POC → AUG au lancement DAO Phase 2 (voir white paper §7.2).
+6. **`BURNER_ROLE` n'est PAS accordé** — réservé au futur contract `AraConverter` qui
+   exécutera la conversion AUG-POC → ARA au lancement DAO Phase 2 (voir white paper §7.2).
 7. Assert toutes les propriétés de câblage des rôles dans le script avant de retourner.
 
 Le flag `--verify` utilise ta clé API Arbiscan pour uploader le code source, ainsi

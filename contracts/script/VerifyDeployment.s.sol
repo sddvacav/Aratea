@@ -48,7 +48,7 @@ contract VerifyDeployment is Script {
 
         // --- Token-specific sanity ---
         require(token.totalSupply() == 0, "token: totalSupply must be 0 at fresh deploy");
-        require(keccak256(bytes(token.name())) == keccak256(bytes("Augure POC Token")), "token: name mismatch");
+        require(keccak256(bytes(token.name())) == keccak256(bytes("Aratea POC Token")), "token: name mismatch");
         require(keccak256(bytes(token.symbol())) == keccak256(bytes("AUG-POC")), "token: symbol mismatch");
         require(token.decimals() == 18, "token: decimals must be 18");
 

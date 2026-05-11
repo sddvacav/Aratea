@@ -1,8 +1,8 @@
-# Contributing to Augure
+# Contributing to Aratea
 
 > [Lire en français](CONTRIBUTING.fr.md)
 
-Augure rewards labor value brought to the project, in any form: code, data, research, design, documentation, capital. The system is **fact-only**: only what is committed to Git counts.
+Aratea rewards labor value brought to the project, in any form: code, data, research, design, documentation, capital. The system is **fact-only**: only what is committed to Git counts.
 
 ## Steps to participate
 

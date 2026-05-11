@@ -1,4 +1,4 @@
-# HOURLY_RATES — Augure rate sheet (BTC)
+# HOURLY_RATES — Aratea rate sheet (BTC)
 
 > [Lire en français](HOURLY_RATES.fr.md)
 

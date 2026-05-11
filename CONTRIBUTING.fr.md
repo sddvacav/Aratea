@@ -1,8 +1,8 @@
-# Contribuer à Augure
+# Contribuer à Aratea
 
 > [Read in English](CONTRIBUTING.md)
 
-Augure récompense la valeur travail apportée au projet, sous toute forme : code, donnée, recherche, design, documentation, capital. Le système est **fact-only** : seul ce qui est commité dans Git compte.
+Aratea récompense la valeur travail apportée au projet, sous toute forme : code, donnée, recherche, design, documentation, capital. Le système est **fact-only** : seul ce qui est commité dans Git compte.
 
 ## Étapes pour participer
 

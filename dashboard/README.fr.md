@@ -2,10 +2,10 @@
 
 # dashboard
 
-Dashboard read-only de la couche de règlement Phase 1 d'Augure. Affiche l'état live
+Dashboard read-only de la couche de règlement Phase 1 d'Aratea. Affiche l'état live
 de `AugPocToken` et `RoundRegistry` déployés sur Arbitrum Sepolia (testnet).
 
-**Live :** [augure-app.vercel.app](https://augure-app.vercel.app/)
+**Live :** [aratea-app.vercel.app](https://aratea-app.vercel.app/)
 
 ## Statut
 
