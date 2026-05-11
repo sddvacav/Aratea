@@ -33,10 +33,12 @@
       "position": {
         "side": "NO",
         "size_usd": 100,
-        "entry_price_cents": null,
-        "n_contracts": null,
-        "opened_at_utc": null,
-        "paper": true
+        "entry_price_yes_cents": 36,
+        "entry_price_no_cents": 64,
+        "n_contracts": 156,
+        "opened_at_utc": "2026-05-10T17:12:17Z",
+        "paper": true,
+        "ledger_bet_id": "20260510T171217Z000000"
       },
       "resolution": {
         "outcome": null,
