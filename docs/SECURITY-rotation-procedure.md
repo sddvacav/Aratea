@@ -1,6 +1,6 @@
 # Secret rotation procedure
 
-> Runbook for rotating every credential the Augure stack depends on.
+> Runbook for rotating every credential the Aratea stack depends on.
 > Used routinely (quarterly) and after any suspected exposure.
 
 ## When to rotate
@@ -29,7 +29,7 @@
 1. Sign in at [pinata.cloud](https://app.pinata.cloud/) → **Developers
    → API Keys**.
 2. Click **New Key**. Set:
-   - Key name: `augure-ci-YYYYMMDD`.
+   - Key name: `aratea-ci-YYYYMMDD`.
    - Permissions: only `pinFileToIPFS`, `pinList`. Leave `unpin`
      **unchecked** unless you specifically need to remove pins from CI.
    - Expiration: **90 days**.

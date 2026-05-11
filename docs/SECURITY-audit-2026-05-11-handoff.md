@@ -17,8 +17,8 @@ qui a été corrigé en code** et **ce qui te reste à faire manuellement**
 | **P2-3** | `predictor/requirements.lock` généré par `pip-compile --generate-hashes`. 297 lignes, toutes les transitives épinglées avec SHA-256. README mis à jour avec la commande `pip install -r requirements.lock --require-hashes` et la procédure de regen. |
 | **P2-4** | `.github/dependabot.yml` (pip + npm + github-actions, hebdo lundi) et `.github/workflows/codeql.yml` (Python + JS/TS, security-extended) ajoutés. |
 | **P2-5** | `node_modules/` confirmé absent de l'historique git (`git log --all -- dashboard/node_modules` vide). Rien à filter-repo. |
-| **P3-1** | `USER_AGENT` passé de `myowly-kalshi-poc/0.1` à `augure-predictor/0.1 (+https://github.com/Elladriel80/augure)`. Plus de leak de l'ancien nom dans les logs upstream Open-Meteo/Kalshi/NWS. |
-| **P3-5** | `SECURITY.md` + `SECURITY.fr.md` à la racine, avec canal de disclosure email + politique 90 jours. |
+| **P3-1** | `USER_AGENT` mis à jour pour pointer vers l'identifiant projet courant (avec URL repo contactable). Plus de fuite d'identifiant historique dans les logs upstream Open-Meteo/Kalshi/NWS. |
+| **P3-5** | `SECURITY.md` + `SECURITY.fr.md` à la racine, canal de disclosure via GitHub Private Vulnerability Reporting + politique 90 jours. |
 | **P3-6** | Audit confirme que `allowed_mentions: { parse: [] }` est en place dans `post-discord.mjs`. Rien à faire. |
 | **Bonus** | `.pre-commit-config.yaml` avec gitleaks + hygiène commune. `docs/SECURITY-rotation-procedure.md` documente comment tourner chaque secret. |
 
@@ -70,7 +70,7 @@ Bloque maintenant tout `git commit` qui inclurait un secret reconnu par gitleaks
 
 ### Déplacer les `.env` hors du repo (P1-2)
 
-Optionnel mais recommandé : déplace `contracts/.env` et `predictor/.env` vers `~/.config/augure/` (Linux/macOS) ou `%APPDATA%\augure\` (Windows). Réduit la surface d'attaque locale (extensions VSCode, npm postinstall, etc.).
+Optionnel mais recommandé : déplace `contracts/.env` et `predictor/.env` vers `~/.config/aratea/` (Linux/macOS) ou `%APPDATA%\aratea\` (Windows). Réduit la surface d'attaque locale (extensions VSCode, npm postinstall, etc.).
 
 Si tu fais ça, il faudra adapter le chargement dans `contracts/script/*.s.sol` et les scripts Python qui font `dotenv.load_dotenv()` pour pointer vers le nouveau path.
 

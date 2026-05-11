@@ -8,11 +8,16 @@ Si vous pensez avoir trouvé une faille de sécurité dans ce dépôt
 — smart contracts, predictor, dashboard ou tooling CI — **merci de ne
 pas ouvrir d'issue GitHub publique**.
 
-Contactez le mainteneur directement par email :
+Utilisez plutôt le canal privé GitHub :
 
-- **Contact :** `REDACTED-EMAIL`
-- **Clé PGP :** *(pas encore publiée — demander hors-bande si vous
-  avez besoin d'un transport chiffré)*
+1. Ouvrez l'onglet **Security** du dépôt.
+2. Cliquez sur **Report a vulnerability**.
+3. Remplissez le formulaire. Le rapport reste privé entre vous et les
+   mainteneurs jusqu'à la publication d'un correctif.
+
+C'est le seul canal de signalement supporté. Les rapports envoyés par
+d'autres voies (email, réseaux sociaux, issues publiques) risquent
+d'être manqués ou ignorés.
 
 Merci d'inclure :
 

@@ -8,11 +8,15 @@ If you believe you have found a security vulnerability in this repository
 — smart contracts, predictor, dashboard, or CI tooling — **please do not
 open a public GitHub issue**.
 
-Instead, email the maintainer directly:
+Use GitHub's private vulnerability reporting instead:
 
-- **Contact:** `REDACTED-EMAIL`
-- **PGP key:** *(not yet published — request out-of-band if you need
-  encrypted transport)*
+1. Open the repository's **Security** tab.
+2. Click **Report a vulnerability**.
+3. Fill in the form. The report stays private between you and the
+   maintainers until a fix is released.
+
+This is the only supported reporting channel. Reports sent through other
+means (email, social media, public issues) may be missed or ignored.
 
 Please include:
 
