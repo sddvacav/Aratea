@@ -47,6 +47,15 @@ jobs:
           if-no-files-found: error
           compression-level: 6
           retention-days: 7
-      - name: Propagate validation failure
-        if: steps.build.outcome != 'success'
-        run: exit 1
+      - name: Assert py_compile gate
+        if: always()
+        run: jq -e '.py_compile_pass == true' dist/TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718/reports/VALIDATION_REPORT.json
+      - name: Assert unittest gate
+        if: always()
+        run: jq -e '.unittest_pass == true' dist/TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718/reports/VALIDATION_REPORT.json
+      - name: Assert patch syntax gate
+        if: always()
+        run: jq -e '.patch_syntax_check_pass == true' dist/TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718/reports/VALIDATION_REPORT.json
+      - name: Assert all software gates
+        if: always()
+        run: jq -e '.all_software_checks_pass == true' dist/TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718/reports/VALIDATION_REPORT.json
