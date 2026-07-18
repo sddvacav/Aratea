@@ -1,0 +1,22 @@
+name: G11 Public Runner Smoke
+
+on:
+  push:
+    branches:
+      - g11-artifact-build-20260718
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p smoke
+          printf 'public runner ok\n' > smoke/status.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g11-public-runner-smoke
+          path: smoke/*
