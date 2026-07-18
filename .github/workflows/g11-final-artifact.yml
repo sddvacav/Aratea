@@ -1,0 +1,37 @@
+name: G11 Final Artifact
+
+on:
+  push:
+    branches:
+      - g11-artifact-build-20260718
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-g11-final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build and validate G11 return
+        run: python tools/build_g11_final.py
+      - name: Upload single FINAL ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718
+          path: dist/TIAI_G11_TRAINING_OVERNIGHT_TABPFN_FINAL_20260718/*
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 7
