@@ -1,0 +1,80 @@
+name: G08 temporary artifact build
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.head_ref == 'tmp-g08-web99-artifact-20260718'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Retrieve immutable generator
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BLOB_SHA: faccb85a36c9d1212b60211d37385eb85a130cc3
+        run: |
+          python - <<'PY'
+          import base64,json,os,urllib.request
+          u=f"https://api.github.com/repos/{os.environ['REPO']}/git/blobs/{os.environ['BLOB_SHA']}"
+          q=urllib.request.Request(u,headers={"Authorization":f"Bearer {os.environ['GH_TOKEN']}","Accept":"application/vnd.github+json","User-Agent":"G08-builder"})
+          with urllib.request.urlopen(q,timeout=30) as r:d=json.load(r)
+          b=base64.b64decode(d["content"]);open("build_g08.py","wb").write(b);print(f"generator_bytes={len(b)}")
+          PY
+
+      - name: Stage direct-delivery bundle
+        run: python build_g08.py stage
+
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest jsonschema
+
+      - name: Compile and test
+        id: tests
+        shell: bash
+        run: |
+          set +e
+          B="build/TIAI_G08_QNEHVI_GEN_CONSTRAINTS_WEB99_FINAL_20260718"
+          {
+            echo "=== compileall ==="
+            PYTHONPATH="$B" python -m compileall -q "$B/modules"
+            cc=$?
+            echo "compile_exit_code=$cc"
+            echo "=== pytest ==="
+            PYTHONPATH="$B" python -m pytest "$B/tests" -q
+            pc=$?
+            echo "pytest_exit_code=$pc"
+            if [ "$cc" -ne 0 ]; then code=$cc; else code=$pc; fi
+            echo "combined_exit_code=$code"
+          } 2>&1 | tee /tmp/g08-tests.txt
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Finalize manifest and checksums
+        if: always()
+        run: python build_g08.py finalize --test-code "${{ steps.tests.outputs.code }}" --log /tmp/g08-tests.txt
+
+      - name: Upload one FINAL bundle archive
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TIAI_G08_QNEHVI_GEN_CONSTRAINTS_WEB99_FINAL_20260718
+          path: build/TIAI_G08_QNEHVI_GEN_CONSTRAINTS_WEB99_FINAL_20260718/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 9
+
+      - name: Enforce tests
+        if: steps.tests.outputs.code != '0'
+        run: exit 1
