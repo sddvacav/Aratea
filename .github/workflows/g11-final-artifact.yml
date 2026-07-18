@@ -25,18 +25,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Exclude empty init files from generated patch hunks
+      - name: Harden generated patch input set
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('tools/build_g11_final.py')
           text = path.read_text(encoding='utf-8')
           text = text.replace('if path.is_file())', 'if path.is_file() and path.stat().st_size > 0)')
+          text = text.replace(
+              'py_compile.compile(str(ROOT / rel), doraise=True)',
+              "py_compile.compile(str(ROOT / rel), cfile=str(Path(tempfile.gettempdir()) / (Path(rel).name + '.pyc')), doraise=True)",
+          )
           path.write_text(text, encoding='utf-8')
           PY
       - name: Build and validate G11 return
         id: build
         continue-on-error: true
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
         run: python tools/build_g11_final.py
       - name: Upload single FINAL ZIP
         if: always()
