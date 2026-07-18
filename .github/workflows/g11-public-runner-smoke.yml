@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - g11-artifact-build-20260718
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
